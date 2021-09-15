@@ -1,0 +1,40 @@
+{% extends "blog/basic.html" %}
+
+{% block title %}
+Create Blog
+{% endblock title %}
+
+{% block css %}
+  
+{% endblock css %}
+
+
+{% block body %} 
+
+<h1 class="display-1">
+    Create a new blog
+</h1>
+
+<form action="/blog/create/" method="POST" enctype='multipart/form-data' >
+{% csrf_token %}
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Title</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="title">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    
+    <div class="form-floating">
+        <textarea name="body" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+        <label for="floatingTextarea2">Body</label>
+      </div>
+
+<div class="mb-3">
+  <label for="formFile" class="form-label">Default file input example</label>
+  <input name="image" class="form-control" type="file" id="formFile">
+</div>
+    <button type="submit" class="btn btn-primary">Create a new blog</button>
+  </form>
+
+
+{% endblock body %}

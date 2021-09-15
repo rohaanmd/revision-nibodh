@@ -1,0 +1,47 @@
+{% extends "blog/basic.html" %}
+
+{% block title %}
+Blog Home
+{% endblock title %}
+
+{% block css %}
+  
+{% endblock css %}
+
+
+{% block body %} 
+
+
+<div class="row">
+    <div class="col">
+        <h1 class="display-1">Hello Blog</h1>
+
+        <a href="form/create/">Create a new blog</a>
+        
+        <!-- <a href="blog/create/"></a>
+        <a href="blog/list/"></a> -->
+
+
+
+        {% for d in data  %}
+
+        <div class="card" style="width: 18rem;">
+            <img src="/media/{{d.image}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ d.title }}</h5>
+              <p class="card-text">{{d.body}}</p>
+              <a href="/blog/delete/{{d.id}}" class="btn btn-primary">Delete Blog</a>
+              <a href="/blog/form/edit/{{d.id}}" class="btn btn-primary">Edit Blog</a>
+            </div>
+          </div>
+
+        {% endfor %}
+
+
+
+
+    </div>
+</div>
+
+
+{% endblock body %}
